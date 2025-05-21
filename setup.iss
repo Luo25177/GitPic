@@ -15,3 +15,23 @@ Source: "output/*"; DestDir: {app}; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{group}\icon"; Filename: "./gitpic_128x128.ico"
+
+
+[Code]
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+  InstallDir: String;
+begin
+  InstallDir := ExpandConstant('{app}');
+
+  case CurUninstallStep of
+    usUninstall:
+      begin
+        if DirExists(InstallDir) then
+          DelTree(InstallDir, True, True, True);
+        RemoveDir(ExtractFileDir(InstallDir));
+      end;
+  end;
+end;
+
+
