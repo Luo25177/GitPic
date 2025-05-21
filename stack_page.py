@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QLineEdit, QListWidget, QListWidgetItem
 from PyQt5.QtCore import Qt
 import json
+import os
 from switch_button import SwitchButton
 from drop_image_widget import DropImageWidget
 from show_img_widget import ShowImageWidget
@@ -18,6 +19,8 @@ class StackPage(QStackedWidget):
     self.create_settings_page()
 
   def read_settings(self):
+    if not os.path.exists("./cache"):
+      os.makedirs("./cache")
     try:
       with open("./cache/github_settings.json", 'r', encoding='UTF-8') as f:
         self.github_settings_dic = json.load(f)
