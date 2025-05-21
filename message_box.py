@@ -1,7 +1,5 @@
-import sys
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QWidget
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPainter, QPen, QColor
 
 class MessageBox(QDialog):
   def __init__(self, title, infomation, parent=None):

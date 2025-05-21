@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QListWidget, QListWidgetItem
-from my_enum import PageName
-from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtCore import Qt
 
 class SideBar(QWidget):
   def __init__(self, width):

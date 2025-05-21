@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit, QListWidget, QListWidgetItem
+from PyQt5.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QLineEdit, QListWidget, QListWidgetItem
 from PyQt5.QtCore import Qt
 import json
 from switch_button import SwitchButton

@@ -1,4 +1,3 @@
-import sys
 from PyQt5.QtCore import Qt, QRect, QPoint, QVariantAnimation
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QWidget
