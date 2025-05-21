@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=GitPic
-AppVersion=1.0.0
+AppVersion=1.0.1
 DefaultDirName={pf}/GitPic
 OutputDir=setup
 OutputBaseFilename=GitPic_setup
