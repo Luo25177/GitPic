@@ -20,6 +20,7 @@ class UpLoadAPI(QObject):
       if response.status_code == 201:
         self.show_func("success", "the image link has been copied to the clipboard")
         self.finished_func.emit(True)
+        return
       else:
         self.show_func("failed", "upload failed")
     except requests.exceptions.Timeout:

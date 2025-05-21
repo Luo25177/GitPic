@@ -92,8 +92,8 @@ class ShowImageWidget(QWidget):
     self.t.start()
   
   def get_image_finished(self):
-    self.t.quit()
     self.setup()
+    self.t.quit()
   
   def setup(self):
     for i in reversed(range(self.v_layout.count())): 
@@ -292,7 +292,7 @@ class ShowImageWidget(QWidget):
     self.t = QThread()
     self.worker.moveToThread(self.t)
     self.t.started.connect(self.worker.do_work)
-    self.worker.finished_func.connect(self.setup)
+    self.worker.finished_func.connect(self.get_image_finished)
     self.worker.finished_func.connect(self.worker.deleteLater)
     self.t.finished.connect(self.t.deleteLater)
     self.t.start()

@@ -125,7 +125,7 @@ class DropImageWidget(QWidget):
     self.normal_settings_dic = normal_settings_dic
   
   def update_github_settings(self, github_settings_dic):
-    self.upload_api.update(github_settings_dic)
+    self.github_settings_dic = github_settings_dic
 
   def show_func(self, title, message):
     MessageBox.information(None, title, message)
