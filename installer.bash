@@ -14,5 +14,4 @@ pyinstaller \
   --add-data "utils/stack_page.py;utils" \
   --add-data "utils/switch_button.py;utils" \
   --add-data "utils/upload_api.py;utils" \
-  --add-data "utils/work_thread.py;utils" \
   gitpic.py
