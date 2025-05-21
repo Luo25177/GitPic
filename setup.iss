@@ -12,6 +12,8 @@ SetupIconFile=./gitpic_128x128.ico
 
 [Files]
 Source: "output/*"; DestDir: {app}; Flags: ignoreversion recursesubdirs
+Source: "fonts/*"; DestDir: {app}/fonts; Flags: ignoreversion recursesubdirs
+Source: "img/*"; DestDir: {app}/img; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{group}\icon"; Filename: "./gitpic_128x128.ico"
