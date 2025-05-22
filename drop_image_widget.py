@@ -117,7 +117,7 @@ class DropImageWidget(QWidget):
 
   def upload_finished(self, state):
     if state:
-      pyperclip.copy(self.github_settings_dic['domain'] + self.image_name)
+      pyperclip.copy(self.github_settings_dic['domain'] + self.github_settings_dic['path'] + "/" + self.image_name)
     self.upload_button.setEnabled(True)
     self.t.quit()
 
