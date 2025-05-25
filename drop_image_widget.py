@@ -73,7 +73,7 @@ class DropImageWidget(QWidget):
     if event.mimeData().hasUrls():
       url = event.mimeData().urls()[0]
       file_path = url.toLocalFile()
-      if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
+      if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', 'webp')):
         event.acceptProposedAction()
   
   def dropEvent(self, event):
@@ -81,7 +81,7 @@ class DropImageWidget(QWidget):
       self.image_name = os.path.basename(url.toLocalFile())
       self.image_path = url.toLocalFile()
       file_path = url.toLocalFile()
-      if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
+      if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', 'webp')):
         pixmap = QPixmap(file_path)
         if not pixmap.isNull():
           self.current_image_path = file_path

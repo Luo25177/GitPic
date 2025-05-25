@@ -10,7 +10,6 @@ image_list_data = []
 fail_information = ""
 
 class WorkThread(QObject):
-  get_image_func = pyqtSignal()
   finished_func = pyqtSignal()
 
   def __init__(self, github_settings_dic):
@@ -21,7 +20,6 @@ class WorkThread(QObject):
     token = github_settings_dic["token"]
     repo = github_settings_dic["reposity"]
     branch = github_settings_dic["branch"]
-    self.domain = github_settings_dic["domain"]
 
     self.headers = {
         "Authorization": f"token {token}",
@@ -32,7 +30,7 @@ class WorkThread(QObject):
       "branch": branch
     }
   
-  def get_images_from_github(self, path="/"):
+  def get_images_from_github(self, path=""):
     l = []
     global fail_information
     try:
@@ -42,13 +40,13 @@ class WorkThread(QObject):
         for item in contents:
           if item['type'] == 'dir':
             l.extend(self.get_images_from_github(item['path']))
-          elif item['path'].lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
+          elif item['path'].lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', 'webp')):
             response = requests.get(item['download_url'], headers=self.headers, json=self.data, timeout=5)
             l.append([item['path'], response.content])
       else:
-        fail_information = "upload failed"
+        fail_information = "load failed"
     except requests.exceptions.Timeout:
-      fail_information = "upload timeout"
+      fail_information = "load timeout"
     except requests.exceptions.ConnectionError:
       fail_information = "connect failed"
     return l
@@ -197,6 +195,8 @@ class ShowImageWidget(QWidget):
 
     global image_list_data
     pixmap = QPixmap()
+    if(image_list_data[self.index][1] == None):
+      return None
     pixmap.loadFromData(image_list_data[self.index][1])
     if pixmap.isNull():
       return None
